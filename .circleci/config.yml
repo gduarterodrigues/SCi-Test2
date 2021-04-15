@@ -26,7 +26,7 @@ jobs:
   build_android:
     <<: *build
     environment:
-      BUILD_TARGET: Android
+      BUILD_TARGET: $BUILD_TARGET
           
 workflows:
   version: 2

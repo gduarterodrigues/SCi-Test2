@@ -1,0 +1,35 @@
+version: 2.1
+
+executors:
+  unity_exec:
+    docker:
+      - image: gableroux/unity3d:2020.1.4f1-webgl
+    environment:
+      BUILD_NAME: $BUILD_NAME
+
+.build: &build
+  executor: unity_exec
+  steps:
+    - checkout
+    - run: 
+        name: Converting Unity license
+        command: chmod +x ./ci/unity_license.sh && ./ci/unity_license.sh
+    - run:
+        name: Building game binaries
+        command: chmod +x ./ci/build.sh && ./ci/build.sh
+    - run: 
+        name: Zipping build
+        command: apt update && apt -y install zip && zip -r "build.zip" ./Builds/
+    - store_artifacts:
+        path: build.zip
+jobs:
+  build_android:
+    <<: *build
+    environment:
+      BUILD_TARGET: Android
+          
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build_android

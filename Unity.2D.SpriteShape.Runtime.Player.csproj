@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{93C99E53-A08E-5EFC-5CD4-E035F8EC4444}</ProjectGuid>
+    <ProjectGuid>{931C8157-2162-8E55-B239-7AB8852B7072}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Unity.2D.SpriteShape.Runtime</AssemblyName>
@@ -612,15 +612,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.2D.Common.Runtime.csproj">
-      <Project>{89E5B7F1-3EB7-A6B8-372E-766B1A0C1FE4}</Project>
+      <Project>{F965E012-84FC-1788-0963-79A3F5048AB0}</Project>
       <Name>Unity.2D.Common.Runtime</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Mathematics.csproj">
-      <Project>{761C76D8-B295-3882-A926-8531C829FB75}</Project>
+      <Project>{5B1D999C-775C-D04B-6624-2A4C59B48FE7}</Project>
       <Name>Unity.Mathematics</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{D4EC5EA7-DB6F-6E7C-8685-76A34BC09372}</Project>
+      <Project>{C5BD0A0B-BB95-166A-FA09-D410F9840968}</Project>
       <Name>UnityEngine.UI</Name>
     </ProjectReference>
   </ItemGroup>

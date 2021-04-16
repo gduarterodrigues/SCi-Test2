@@ -11,7 +11,7 @@ mkdir -p $BUILD_PATH
 ${UNITY_EXECUTABLE:-xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity} \
   -quit \
   -batchmode \
-  -buildTarget $BUILD_TARGET \
+  -buildTarget WebGL \
   -customBuildTarget $BUILD_TARGET \
   -customBuildName $BUILD_NAME \
   -customBuildPath $BUILD_PATH \

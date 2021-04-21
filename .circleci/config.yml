@@ -1,14 +1,14 @@
 version: 2.1
 
 executors:
-  unity_exec:
+  unity_exec_webgl:
     docker:
-      - image: gableroux/unity3d:2020.1.4f1-webgl
+      - image: unityci/editor:ubuntu-2020.3.4f1-webgl-0.11.0
     environment:
       BUILD_NAME: $BUILD_NAME
 
-.build: &build
-  executor: unity_exec
+.build: &build_webgl
+  executor: unity_exec_webgl
   steps:
     - checkout
     - run: 
@@ -24,7 +24,7 @@ executors:
         path: build.zip
 jobs:
   build:
-    <<: *build
+    <<: *build_webgl
     environment:
       BUILD_TARGET: $BUILD_TARGET
           

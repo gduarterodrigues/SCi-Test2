@@ -40,9 +40,14 @@ static class BuildCommand
     static BuildTarget GetBuildTarget()
     {
         string buildTargetName = GetArgument("customBuildTarget");
+        if(string.IsNullOrEmpty(buildTargetName) )
+        {
+            Console.WriteLine(":: Received No customBuildTarget ");
+            return BuildTarget.WebGL;
+        }
         Console.WriteLine(":: Received customBuildTarget " + buildTargetName);
 
-        if (buildTargetName.ToLower() == "android")
+        if (buildTargetName?.ToLower() == "android")
         {
 #if !UNITY_5_6_OR_NEWER
 			// https://issuetracker.unity3d.com/issues/buildoptions-dot-acceptexternalmodificationstoplayer-causes-unityexception-unknown-project-type-0
@@ -84,6 +89,9 @@ static class BuildCommand
 
     static string GetFixedBuildPath(BuildTarget buildTarget, string buildPath, string buildName)
     {
+        if(string.IsNullOrEmpty(buildPath))
+            buildPath = "/build/build";
+
         if (buildTarget.ToString().ToLower().Contains("windows")) {
             buildName += ".exe";
         } else if (buildTarget == BuildTarget.Android) {
@@ -159,7 +167,7 @@ static class BuildCommand
         }
     }
 
-    static void PerformBuild()
+    public static void PerformBuild()
     {
         Console.WriteLine(":: Performing build");
 

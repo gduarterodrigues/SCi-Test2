@@ -90,8 +90,7 @@ static class BuildCommand
     static string GetFixedBuildPath(BuildTarget buildTarget, string buildPath, string buildName)
     {
         if(string.IsNullOrEmpty(buildPath))
-            //buildPath = "C:/Users/guilh/Desktop/SpiritSitter/repo/SpiritSitter_Proto_GC/SpiritSitterCI/UnityCITest/SCi-Test2"+ "/build/build";
-            buildPath = "build";
+            buildPath = "/build/build";
 
         if (buildTarget.ToString().ToLower().Contains("windows")) {
             buildName += ".exe";

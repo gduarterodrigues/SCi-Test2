@@ -3,7 +3,7 @@ version: 2.1
 executors:
   unity_exec_webgl:
     docker:
-      - image: unityci/editor:ubuntu-2020.3.4f1-webgl-0.11.0
+      - image: gableroux/unity3d:2020.1.4f1-webgl
     environment:
       BUILD_NAME: $BUILD_NAME
 

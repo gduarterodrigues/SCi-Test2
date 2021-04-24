@@ -10,6 +10,9 @@ executors:
 .build1: &build_webgl
   executor: unity_exec_webgl
   steps:
+    - add_ssh_keys:
+        fingerprints:
+            - "6c:48:dd:e9:08:5f:a2:ed:eb:54:a6:e1:4a:91:ec:20"
     - checkout
     - run: 
         name: Converting Unity license
@@ -23,15 +26,11 @@ executors:
     - store_artifacts:
         path: build.zip
 jobs:
-  deploy-job:
-    steps:
-      - add_ssh_keys:
-          fingerprints:
-            - "6c:48:dd:e9:08:5f:a2:ed:eb:54:a6:e1:4a:91:ec:20"
   build_webgl:
     <<: *build_webgl
     environment:
       BUILD_TARGET: $BUILD_TARGET
+    
           
 workflows:
   version: 2
